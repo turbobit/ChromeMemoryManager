@@ -1,4 +1,5 @@
 # Chrome Memory Manager
+![image](https://github.com/user-attachments/assets/6ec077bd-6cc2-4e76-83a5-40a0824ef671)
 
 ## 개요
 
