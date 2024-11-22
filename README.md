@@ -52,6 +52,13 @@ pip install psutil pystray Pillow
 6. **Chrome 프로세스 종료**
    - 메모리 사용량 목록에서 각 프로세스별로 "Kill PID" 버튼을 눌러 특정 Chrome 프로세스를 종료할 수 있습니다.
 
+7. **실행 파일 생성**
+   - 다음 명령어를 사용하여 실행 파일을 생성할 수 있습니다:
+   ```sh
+   python -m PyInstaller --onefile --windowed --icon=chromeMemoryManager_icon.ico --add-data "chromeMemoryManager_icon.ico;." chromeMemorymanager.py
+   ```
+   - 이 명령어는 `chromeMemorymanager.py` 스크립트를 단일 실행 파일로 변환합니다.
+
 ## 주의 사항
 
 - 메모리 정리 기능은 Windows 운영체제에서만 동작합니다. `ctypes` 라이브러리를 사용해 Chrome 프로세스의 Working Set을 비우는 방식으로 구현되어 있기 때문에 Linux나 macOS에서는 사용할 수 없습니다.
