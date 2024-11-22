@@ -1,0 +1,4 @@
+pillow==11.0.0
+psutil==6.1.0
+pystray==0.19.5
+six==1.16.0
