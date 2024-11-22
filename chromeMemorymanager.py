@@ -7,9 +7,10 @@ import pystray
 from PIL import Image
 
 # 크롬 프로세스 메모리 임계값 (예: 500MB)
-MEMORY_THRESHOLD_MB = 500
+MEMORY_THRESHOLD_MB = 50
 running = False
 monitoring_interval = 5  # 기본 모니터링 간격 (초 단위)
+monitoring_thread = None
 
 # 메모리 사용량 모니터링 함수
 def monitor_chrome_memory():
@@ -44,7 +45,7 @@ def monitor_chrome_memory():
         time.sleep(monitoring_interval)
 
 def start_monitoring():
-    global running
+    global running, monitoring_thread
     running = True
     monitoring_status.set("Monitoring: ON")
     monitoring_thread = Thread(target=monitor_chrome_memory)
@@ -123,6 +124,7 @@ def show_gui_window(icon, item=None):
     tray_icon.visible = False
 
 def quit_app(icon, item):
+    stop_monitoring()  # 모니터링 중지
     icon.stop()
     root.quit()
 
